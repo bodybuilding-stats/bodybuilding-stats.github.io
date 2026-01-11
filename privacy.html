@@ -1,20 +1,393 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - Bodybuilding Stats</title>
-    <style>body { font-family: -apple-system, sans-serif; padding: 20px; line-height: 1.6; max-width: 800px; margin: 0 auto; }</style>
+    <title>Privacy Policy - Your App Name</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.8;
+            color: #ffffff;
+            background: linear-gradient(135deg, #001D3D 0%, #00274D 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #D2B17E;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(50, 42, 57, 0.5);
+        }
+
+        .last-updated {
+            color: #E8D5B7;
+            font-size: 1em;
+            font-style: italic;
+        }
+
+        .lang-selector {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .lang-btn {
+            background: rgba(50, 42, 57, 0.3);
+            border: 2px solid #4A4151;
+            color: #D2B17E;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .lang-btn:hover {
+            background: rgba(50, 42, 57, 0.5);
+            border-color: #D2B17E;
+            transform: translateY(-2px);
+        }
+
+        .lang-btn.active {
+            background: #D2B17E;
+            color: #001D3D;
+            border-color: #D2B17E;
+        }
+
+        .content-section {
+            display: none;
+            background: rgba(50, 42, 57, 0.3);
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 30px;
+            border: 1px solid #4A4151;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .content-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h2 {
+            color: #D2B17E;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #4A4151;
+        }
+
+        h2:first-child {
+            margin-top: 0;
+        }
+
+        p {
+            color: #E8D5B7;
+            margin-bottom: 20px;
+            font-size: 1.05em;
+        }
+
+        .highlight-box {
+            background: rgba(0, 39, 77, 0.5);
+            border-left: 4px solid #D2B17E;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 8px;
+        }
+
+        .highlight-box p {
+            margin-bottom: 10px;
+        }
+
+        .highlight-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        ul {
+            color: #E8D5B7;
+            margin-left: 25px;
+            margin-bottom: 20px;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+            padding-left: 5px;
+        }
+
+        .contact-info {
+            background: rgba(210, 177, 126, 0.1);
+            border: 2px solid #D2B17E;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .contact-info a {
+            color: #D2B17E;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: #E8D5B7;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 40px;
+            border-top: 1px solid #4A4151;
+        }
+
+        footer a {
+            color: #D2B17E;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #E8D5B7;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .content-section {
+                padding: 25px;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Privacy Policy</h1>
-    <p>Last updated: January 2024</p>
-    <p>This Privacy Policy describes how we handle your personal information. We do not collect, use, or share any personal data from our users.</p>
-    <h2>1. Data Collection</h2>
-    <p>Our application does not collect any personal information or usage data. All data remains on your device.</p>
-    <h2>2. Changes to This Policy</h2>
-    <p>We may update our Privacy Policy from time to time. You are advised to review this page periodically for any changes.</p>
-    <h2>3. Contact Us</h2>
-    <p>If you have any questions, contact us at: [ВАШ EMAIL]</p>
+    <div class="container">
+        <header>
+            <h1>Privacy Policy</h1>
+            <p class="last-updated">Last updated: January 2026</p>
+        </header>
+
+        <div class="lang-selector">
+            <button class="lang-btn active" onclick="switchLang('en')">English</button>
+            <button class="lang-btn" onclick="switchLang('ru')">Русский</button>
+            <button class="lang-btn" onclick="switchLang('es')">Español</button>
+            <button class="lang-btn" onclick="switchLang('pt')">Português</button>
+        </div>
+
+        <!-- English -->
+        <div id="en" class="content-section active">
+            <p>This Privacy Policy describes how we handle your personal information in our application. We are committed to protecting your privacy and ensuring transparency about our data practices.</p>
+
+            <div class="highlight-box">
+                <p><strong>Key Point:</strong> We do not collect, use, or share any personal data from our users. Your privacy is our priority.</p>
+            </div>
+
+            <h2>1. Data Collection</h2>
+            <p>Our application does not collect any personal information or usage data. All your data, including:</p>
+            <ul>
+                <li>Your workout records and statistics</li>
+                <li>Personal preferences and settings</li>
+                <li>Any other information you enter</li>
+            </ul>
+            <p>remains exclusively on your device and is never transmitted to our servers or any third parties.</p>
+
+            <h2>2. Data Storage</h2>
+            <p>All application data is stored locally on your device using Apple's secure storage systems. We do not have access to this data, and it is not synchronized with any external servers unless you choose to use iCloud backup (which is handled entirely by Apple's infrastructure).</p>
+
+            <h2>3. Third-Party Services</h2>
+            <p>Our application does not integrate with any third-party analytics, advertising, or tracking services. We do not use cookies, tracking pixels, or any similar technologies.</p>
+
+            <h2>4. Children's Privacy</h2>
+            <p>Our application does not knowingly collect any information from children. Since we do not collect any data at all, the app is safe for users of all ages.</p>
+
+            <h2>5. Changes to This Policy</h2>
+            <p>We may update our Privacy Policy from time to time to reflect changes in our practices or for legal reasons. We will notify you of any changes by updating the "Last updated" date at the top of this policy. You are advised to review this page periodically for any changes.</p>
+
+            <h2>6. Your Rights</h2>
+            <p>Since we do not collect any personal data, there is no data for us to provide, modify, or delete. You have complete control over your data through your device's settings and the app's built-in features.</p>
+
+            <h2>7. Contact Us</h2>
+            <p>If you have any questions or concerns about this Privacy Policy or our practices, please feel free to contact us:</p>
+            <div class="contact-info">
+                <p><a href="mailto:support@yourmail.com">support@yourmail.com</a></p>
+            </div>
+        </div>
+
+        <!-- Russian -->
+        <div id="ru" class="content-section">
+            <p>Настоящая Политика конфиденциальности описывает, как мы обрабатываем вашу личную информацию в нашем приложении. Мы привержены защите вашей конфиденциальности и обеспечению прозрачности наших методов работы с данными.</p>
+
+            <div class="highlight-box">
+                <p><strong>Ключевой момент:</strong> Мы не собираем, не используем и не передаём никакие персональные данные наших пользователей. Ваша конфиденциальность — наш приоритет.</p>
+            </div>
+
+            <h2>1. Сбор данных</h2>
+            <p>Наше приложение не собирает никакой личной информации или данных об использовании. Все ваши данные, включая:</p>
+            <ul>
+                <li>Записи тренировок и статистика</li>
+                <li>Личные предпочтения и настройки</li>
+                <li>Любая другая информация, которую вы вводите</li>
+            </ul>
+            <p>остаются исключительно на вашем устройстве и никогда не передаются на наши серверы или третьим лицам.</p>
+
+            <h2>2. Хранение данных</h2>
+            <p>Все данные приложения хранятся локально на вашем устройстве с использованием защищённых систем хранения Apple. У нас нет доступа к этим данным, и они не синхронизируются с какими-либо внешними серверами, если только вы не решите использовать резервное копирование iCloud (которое полностью обрабатывается инфраструктурой Apple).</p>
+
+            <h2>3. Сторонние сервисы</h2>
+            <p>Наше приложение не интегрируется с какими-либо сторонними сервисами аналитики, рекламы или отслеживания. Мы не используем файлы cookie, пиксели отслеживания или подобные технологии.</p>
+
+            <h2>4. Конфиденциальность детей</h2>
+            <p>Наше приложение не собирает намеренно никакую информацию от детей. Поскольку мы вообще не собираем никаких данных, приложение безопасно для пользователей всех возрастов.</p>
+
+            <h2>5. Изменения в политике</h2>
+            <p>Мы можем время от времени обновлять нашу Политику конфиденциальности, чтобы отразить изменения в наших методах или по юридическим причинам. Мы уведомим вас о любых изменениях, обновив дату "Последнее обновление" в верхней части этой политики. Рекомендуем периодически просматривать эту страницу.</p>
+
+            <h2>6. Ваши права</h2>
+            <p>Поскольку мы не собираем никаких персональных данных, у нас нет данных для предоставления, изменения или удаления. Вы имеете полный контроль над своими данными через настройки устройства и встроенные функции приложения.</p>
+
+            <h2>7. Свяжитесь с нами</h2>
+            <p>Если у вас есть какие-либо вопросы или опасения относительно этой Политики конфиденциальности или наших методов работы, пожалуйста, свяжитесь с нами:</p>
+            <div class="contact-info">
+                <p><a href="mailto:support@yourmail.com">support@yourmail.com</a></p>
+            </div>
+        </div>
+
+        <!-- Spanish -->
+        <div id="es" class="content-section">
+            <p>Esta Política de Privacidad describe cómo manejamos su información personal en nuestra aplicación. Estamos comprometidos a proteger su privacidad y garantizar la transparencia sobre nuestras prácticas de datos.</p>
+
+            <div class="highlight-box">
+                <p><strong>Punto clave:</strong> No recopilamos, usamos ni compartimos ningún dato personal de nuestros usuarios. Su privacidad es nuestra prioridad.</p>
+            </div>
+
+            <h2>1. Recopilación de datos</h2>
+            <p>Nuestra aplicación no recopila ninguna información personal ni datos de uso. Todos sus datos, incluyendo:</p>
+            <ul>
+                <li>Sus registros de entrenamientos y estadísticas</li>
+                <li>Preferencias personales y configuraciones</li>
+                <li>Cualquier otra información que ingrese</li>
+            </ul>
+            <p>permanecen exclusivamente en su dispositivo y nunca se transmiten a nuestros servidores ni a terceros.</p>
+
+            <h2>2. Almacenamiento de datos</h2>
+            <p>Todos los datos de la aplicación se almacenan localmente en su dispositivo utilizando los sistemas de almacenamiento seguros de Apple. No tenemos acceso a estos datos y no se sincronizan con ningún servidor externo, a menos que elija usar la copia de seguridad de iCloud (que es manejada completamente por la infraestructura de Apple).</p>
+
+            <h2>3. Servicios de terceros</h2>
+            <p>Nuestra aplicación no se integra con ningún servicio de análisis, publicidad o seguimiento de terceros. No usamos cookies, píxeles de seguimiento ni tecnologías similares.</p>
+
+            <h2>4. Privacidad de los niños</h2>
+            <p>Nuestra aplicación no recopila intencionalmente ninguna información de niños. Como no recopilamos ningún dato en absoluto, la aplicación es segura para usuarios de todas las edades.</p>
+
+            <h2>5. Cambios en esta política</h2>
+            <p>Podemos actualizar nuestra Política de Privacidad de vez en cuando para reflejar cambios en nuestras prácticas o por razones legales. Le notificaremos cualquier cambio actualizando la fecha de "Última actualización" en la parte superior de esta política. Se le recomienda revisar esta página periódicamente.</p>
+
+            <h2>6. Sus derechos</h2>
+            <p>Dado que no recopilamos ningún dato personal, no hay datos para proporcionar, modificar o eliminar. Usted tiene control completo sobre sus datos a través de la configuración de su dispositivo y las funciones integradas de la aplicación.</p>
+
+            <h2>7. Contáctenos</h2>
+            <p>Si tiene alguna pregunta o inquietud sobre esta Política de Privacidad o nuestras prácticas, no dude en contactarnos:</p>
+            <div class="contact-info">
+                <p><a href="mailto:support@yourmail.com">support@yourmail.com</a></p>
+            </div>
+        </div>
+
+        <!-- Portuguese -->
+        <div id="pt" class="content-section">
+            <p>Esta Política de Privacidade descreve como lidamos com suas informações pessoais em nosso aplicativo. Estamos comprometidos em proteger sua privacidade e garantir transparência sobre nossas práticas de dados.</p>
+
+            <div class="highlight-box">
+                <p><strong>Ponto chave:</strong> Não coletamos, usamos ou compartilhamos nenhum dado pessoal de nossos usuários. Sua privacidade é nossa prioridade.</p>
+            </div>
+
+            <h2>1. Coleta de dados</h2>
+            <p>Nosso aplicativo não coleta nenhuma informação pessoal ou dados de uso. Todos os seus dados, incluindo:</p>
+            <ul>
+                <li>Seus registros de treinos e estatísticas</li>
+                <li>Preferências pessoais e configurações</li>
+                <li>Qualquer outra informação que você inserir</li>
+            </ul>
+            <p>permanecem exclusivamente em seu dispositivo e nunca são transmitidos para nossos servidores ou terceiros.</p>
+
+            <h2>2. Armazenamento de dados</h2>
+            <p>Todos os dados do aplicativo são armazenados localmente em seu dispositivo usando os sistemas de armazenamento seguros da Apple. Não temos acesso a esses dados e eles não são sincronizados com nenhum servidor externo, a menos que você escolha usar o backup do iCloud (que é totalmente gerenciado pela infraestrutura da Apple).</p>
+
+            <h2>3. Serviços de terceiros</h2>
+            <p>Nosso aplicativo não se integra com nenhum serviço de análise, publicidade ou rastreamento de terceiros. Não usamos cookies, pixels de rastreamento ou tecnologias similares.</p>
+
+            <h2>4. Privacidade infantil</h2>
+            <p>Nosso aplicativo não coleta intencionalmente nenhuma informação de crianças. Como não coletamos nenhum dado, o aplicativo é seguro para usuários de todas as idades.</p>
+
+            <h2>5. Alterações nesta política</h2>
+            <p>Podemos atualizar nossa Política de Privacidade periodicamente para refletir mudanças em nossas práticas ou por razões legais. Notificaremos você sobre quaisquer alterações atualizando a data de "Última atualização" no topo desta política. Recomendamos que você revise esta página periodicamente.</p>
+
+            <h2>6. Seus direitos</h2>
+            <p>Como não coletamos nenhum dado pessoal, não há dados para fornecer, modificar ou excluir. Você tem controle completo sobre seus dados através das configurações do seu dispositivo e dos recursos integrados do aplicativo.</p>
+
+            <h2>7. Entre em contato</h2>
+            <p>Se você tiver alguma dúvida ou preocupação sobre esta Política de Privacidade ou nossas práticas, sinta-se à vontade para nos contatar:</p>
+            <div class="contact-info">
+                <p><a href="mailto:support@yourmail.com">support@yourmail.com</a></p>
+            </div>
+        </div>
+
+        <footer>
+            <p><a href="index.html">← Back to Support</a> | © 2026 Your Name/Studio</p>
+        </footer>
+    </div>
+
+    <script>
+        function switchLang(lang) {
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => section.classList.remove('active'));
+            
+            const buttons = document.querySelectorAll('.lang-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            document.getElementById(lang).classList.add('active');
+            event.target.classList.add('active');
+            
+            document.documentElement.lang = lang;
+        }
+    </script>
 </body>
 </html>
