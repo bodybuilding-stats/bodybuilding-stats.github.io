@@ -5,24 +5,353 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Support - Your App Name</title>
     <style>
-        body { font-family: -apple-system, sans-serif; line-height: 1.6; padding: 20px; color: #333; max-width: 600px; margin: 0 auto; text-align: center; }
-        .btn { display: inline-block; background: #007AFF; color: white; padding: 12px 25px; border-radius: 10px; text-decoration: none; font-weight: bold; margin: 10px 0; }
-        hr { border: 0; border-top: 1px solid #eee; margin: 30px 0; }
-        .footer { font-size: 0.8em; color: #888; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #ffffff;
+            background: linear-gradient(135deg, #001D3D 0%, #00274D 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #D2B17E;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(50, 42, 57, 0.5);
+        }
+
+        .subtitle {
+            color: #E8D5B7;
+            font-size: 1.1em;
+        }
+
+        .lang-selector {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .lang-btn {
+            background: rgba(50, 42, 57, 0.3);
+            border: 2px solid #4A4151;
+            color: #D2B17E;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .lang-btn:hover {
+            background: rgba(50, 42, 57, 0.5);
+            border-color: #D2B17E;
+            transform: translateY(-2px);
+        }
+
+        .lang-btn.active {
+            background: #D2B17E;
+            color: #001D3D;
+            border-color: #D2B17E;
+        }
+
+        .content-section {
+            display: none;
+            background: rgba(50, 42, 57, 0.3);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid #4A4151;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .content-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h2 {
+            color: #D2B17E;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        p {
+            color: #E8D5B7;
+            margin-bottom: 15px;
+            font-size: 1.05em;
+        }
+
+        .contact-section {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #D2B17E 0%, #E8D5B7 100%);
+            color: #001D3D;
+            padding: 15px 35px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(210, 177, 126, 0.4);
+        }
+
+        .faq-section {
+            margin-top: 30px;
+        }
+
+        .faq-item {
+            background: rgba(0, 39, 77, 0.3);
+            border-left: 3px solid #D2B17E;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+        }
+
+        .faq-question {
+            color: #D2B17E;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .faq-answer {
+            color: #E8D5B7;
+        }
+
+        hr {
+            border: 0;
+            border-top: 1px solid #4A4151;
+            margin: 40px 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: #E8D5B7;
+        }
+
+        footer a {
+            color: #D2B17E;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #E8D5B7;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .content-section {
+                padding: 20px;
+            }
+
+            .btn {
+                padding: 12px 25px;
+                font-size: 1em;
+            }
+        }
     </style>
 </head>
 <body>
-    <h1>Your App Name</h1>
-    
-    <h2>Support / Поддержка</h2>
-    <p>English: If you have any questions, feel free to contact us.</p>
-    <p>Русский: Если у вас есть вопросы, свяжитесь с нами.</p>
-    
-    <a href="mailto:support@yourmail.com" class="btn">Contact Support / Написать нам</a>
+    <div class="container">
+        <header>
+            <h1>Your App Name</h1>
+            <p class="subtitle">We're here to help</p>
+        </header>
 
-    <hr>
-    <div class="footer">
-        <p><a href="privacy.html">Privacy Policy</a> | © 2024 Your Name/Studio</p>
+        <div class="lang-selector">
+            <button class="lang-btn active" onclick="switchLang('en')">English</button>
+            <button class="lang-btn" onclick="switchLang('ru')">Русский</button>
+            <button class="lang-btn" onclick="switchLang('es')">Español</button>
+            <button class="lang-btn" onclick="switchLang('pt')">Português</button>
+        </div>
+
+        <!-- English -->
+        <div id="en" class="content-section active">
+            <h2>Support</h2>
+            <p>Thank you for using our app! We're committed to providing you with the best experience possible.</p>
+            
+            <div class="faq-section">
+                <h3 style="color: #D2B17E; margin-bottom: 20px;">Frequently Asked Questions</h3>
+                
+                <div class="faq-item">
+                    <div class="faq-question">How can I contact support?</div>
+                    <div class="faq-answer">You can reach us anytime by clicking the contact button below or sending an email directly to our support team.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">How quickly will I receive a response?</div>
+                    <div class="faq-answer">We typically respond within 24-48 hours during business days.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">What information should I include in my message?</div>
+                    <div class="faq-answer">Please include your device model, iOS version, and a detailed description of your issue to help us assist you better.</div>
+                </div>
+            </div>
+
+            <div class="contact-section">
+                <a href="mailto:support@yourmail.com" class="btn">Contact Support</a>
+            </div>
+        </div>
+
+        <!-- Russian -->
+        <div id="ru" class="content-section">
+            <h2>Поддержка</h2>
+            <p>Спасибо, что используете наше приложение! Мы стремимся предоставить вам лучший опыт.</p>
+            
+            <div class="faq-section">
+                <h3 style="color: #D2B17E; margin-bottom: 20px;">Часто задаваемые вопросы</h3>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Как связаться со службой поддержки?</div>
+                    <div class="faq-answer">Вы можете связаться с нами в любое время, нажав кнопку ниже или отправив письмо напрямую нашей команде поддержки.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Как быстро я получу ответ?</div>
+                    <div class="faq-answer">Обычно мы отвечаем в течение 24-48 часов в рабочие дни.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Какую информацию включить в сообщение?</div>
+                    <div class="faq-answer">Пожалуйста, укажите модель вашего устройства, версию iOS и подробное описание проблемы, чтобы мы могли лучше вам помочь.</div>
+                </div>
+            </div>
+
+            <div class="contact-section">
+                <a href="mailto:support@yourmail.com" class="btn">Написать в поддержку</a>
+            </div>
+        </div>
+
+        <!-- Spanish -->
+        <div id="es" class="content-section">
+            <h2>Soporte</h2>
+            <p>¡Gracias por usar nuestra aplicación! Estamos comprometidos a brindarte la mejor experiencia posible.</p>
+            
+            <div class="faq-section">
+                <h3 style="color: #D2B17E; margin-bottom: 20px;">Preguntas frecuentes</h3>
+                
+                <div class="faq-item">
+                    <div class="faq-question">¿Cómo puedo contactar con soporte?</div>
+                    <div class="faq-answer">Puedes contactarnos en cualquier momento haciendo clic en el botón de abajo o enviando un correo electrónico directamente a nuestro equipo de soporte.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">¿Qué tan rápido recibiré una respuesta?</div>
+                    <div class="faq-answer">Generalmente respondemos dentro de 24-48 horas durante días laborables.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">¿Qué información debo incluir en mi mensaje?</div>
+                    <div class="faq-answer">Por favor, incluye el modelo de tu dispositivo, la versión de iOS y una descripción detallada de tu problema para ayudarnos a asistirte mejor.</div>
+                </div>
+            </div>
+
+            <div class="contact-section">
+                <a href="mailto:support@yourmail.com" class="btn">Contactar Soporte</a>
+            </div>
+        </div>
+
+        <!-- Portuguese -->
+        <div id="pt" class="content-section">
+            <h2>Suporte</h2>
+            <p>Obrigado por usar nosso aplicativo! Estamos comprometidos em fornecer a melhor experiência possível.</p>
+            
+            <div class="faq-section">
+                <h3 style="color: #D2B17E; margin-bottom: 20px;">Perguntas frequentes</h3>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Como posso entrar em contato com o suporte?</div>
+                    <div class="faq-answer">Você pode entrar em contato conosco a qualquer momento clicando no botão abaixo ou enviando um e-mail diretamente para nossa equipe de suporte.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Quanto tempo levará para receber uma resposta?</div>
+                    <div class="faq-answer">Normalmente respondemos dentro de 24-48 horas durante dias úteis.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Que informações devo incluir na minha mensagem?</div>
+                    <div class="faq-answer">Por favor, inclua o modelo do seu dispositivo, versão do iOS e uma descrição detalhada do seu problema para nos ajudar a atendê-lo melhor.</div>
+                </div>
+            </div>
+
+            <div class="contact-section">
+                <a href="mailto:support@yourmail.com" class="btn">Contatar Suporte</a>
+            </div>
+        </div>
+
+        <hr>
+
+        <footer>
+            <p><a href="privacy.html">Privacy Policy</a> | © 2024 Your Name/Studio</p>
+        </footer>
     </div>
+
+    <script>
+        function switchLang(lang) {
+            // Hide all content sections
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => section.classList.remove('active'));
+            
+            // Remove active class from all buttons
+            const buttons = document.querySelectorAll('.lang-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            // Show selected language content
+            document.getElementById(lang).classList.add('active');
+            
+            // Add active class to clicked button
+            event.target.classList.add('active');
+            
+            // Update page language attribute
+            document.documentElement.lang = lang;
+        }
+    </script>
 </body>
 </html>
